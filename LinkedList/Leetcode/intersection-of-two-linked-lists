@@ -1,0 +1,19 @@
+//hashtablemethod
+public class Solution {
+    public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
+        ListNode current=headA;
+        Set<ListNode> hashtab=new HashSet<>();
+        while(current!=null){
+            hashtab.add(current);
+            current=current.next;
+        }
+        current=headB;
+        while(current!=null){
+            if(hashtab.contains(current)){
+                return current;
+            }
+            current=current.next;
+        }
+        return null;
+    }
+}
