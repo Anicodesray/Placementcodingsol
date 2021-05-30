@@ -1,0 +1,27 @@
+//ownsolution
+class Solution {
+    public ListNode reverseList(ListNode head) {
+        ArrayList<Integer> arr=new ArrayList<Integer>();
+        ListNode current=head;
+        if(current==null){
+            return null;
+        }
+        while(current!=null){
+            arr.add(current.val);
+            current=current.next;
+        }
+        int l=arr.size();
+        ListNode newlist=new ListNode(arr.get(l-1));
+        l=l-1;
+        current=newlist;
+        while(l>0){
+            ListNode newnode=new ListNode(arr.get(l-1));
+            current.next=newnode;
+            current=current.next;
+            l--;
+        }
+        
+        return newlist;
+    }
+}
+
